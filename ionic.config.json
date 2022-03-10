@@ -1,0 +1,7 @@
+{
+  "name": "MobixDemo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
