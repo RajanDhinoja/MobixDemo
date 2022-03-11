@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons>
+      <ion-menu-button></ion-menu-button>
+      <ion-title>Profile</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="profile-page">
+  <ion-avatar class="image-center image-container margin-top-20">
+    <ion-img [src]="imageUrl ? getImageUrl() : '/assets/icon/favicon.png'" (click)="takePicture()"></ion-img>
+  </ion-avatar>
+  <form class="form margin-top-20" [formGroup]="profileForm">
+    <ion-item lines="full">
+      <ion-label position="floating" color="primary">First Name</ion-label>
+      <ion-input type="text" formControlName="firstName"></ion-input>
+    </ion-item> 
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.firstName">
+        <div class="error-message"
+          *ngIf="profileForm.get('firstName').hasError(validation.type) && (profileForm.get('firstName').dirty || profileForm.get('firstName').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating" color="primary">Last Name</ion-label>
+      <ion-input type="text" formControlName="lastName"></ion-input>
+    </ion-item> 
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.lastName">
+        <div class="error-message"
+          *ngIf="profileForm.get('lastName').hasError(validation.type) && (profileForm.get('lastName').dirty || profileForm.get('lastName').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating" color="primary">Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item> 
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.email">
+        <div class="error-message"
+          *ngIf="profileForm.get('email').hasError(validation.type) && (profileForm.get('email').dirty || profileForm.get('email').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating" color="primary">Mobile</ion-label>
+      <ion-input type="number" formControlName="mobile" class="form-controll"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.mobile" >
+        <div class="error-message"
+          *ngIf="profileForm.get('mobile').hasError(validation.type) && (profileForm.get('mobile').dirty || profileForm.get('mobile').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating" color="primary">Address</ion-label>
+      <ion-textarea rows="4" formControlName="address" class="form-controll"></ion-textarea>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.address" >
+        <div class="error-message"
+          *ngIf="profileForm.get('address').hasError(validation.type) && (profileForm.get('address').dirty || profileForm.get('address').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating" color="primary">Town</ion-label>
+      <ion-input formControlName="town" class="form-controll"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.town" >
+        <div class="error-message"
+          *ngIf="profileForm.get('town').hasError(validation.type) && (profileForm.get('town').dirty || profileForm.get('town').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating" color="primary">Country</ion-label>
+      <ion-input formControlName="country" class="form-controll"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.country" >
+        <div class="error-message"
+          *ngIf="profileForm.get('country').hasError(validation.type) && (profileForm.get('country').dirty || profileForm.get('country').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating" color="primary">PostCode</ion-label>
+      <ion-input type="number" formControlName="postcode" class="form-controll"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validationMessages.postcode" >
+        <div class="error-message"
+          *ngIf="profileForm.get('postcode').hasError(validation.type) && (profileForm.get('postcode').dirty || profileForm.get('postcode').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-row>
+      <ion-col> 
+      <ion-button (click)="updateUserProfile()" expand="block">Update</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
